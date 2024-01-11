@@ -9,6 +9,8 @@ import { FooterComponent } from './Layout/footer/footer.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ContactComponent } from './Layout/contact/contact.component';
+import { AdminComponent } from './admin/admin.component';
+import { LayoutComponent } from './Layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { ContactComponent } from './Layout/contact/contact.component';
     HeaderComponent,
     FooterComponent,
     ContactComponent,
+    AdminComponent,
+    LayoutComponent,
   ],
   imports: [
     BrowserModule,

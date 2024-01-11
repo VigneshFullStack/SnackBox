@@ -19,7 +19,7 @@ export class ProductComponent {
   data: any[] = [];
   selectedItems: { [key: string]: boolean[] } = {};
 
-  selectedSnacks:any[]= [];
+  selectedSnacks: any[] = [];
 
   constructor(public router: Router, private snackboxService: SnackboxService,
     private route: ActivatedRoute) {
@@ -58,15 +58,15 @@ export class ProductComponent {
     });
   }
 
-  addToCart(snack_type:string, item: string): void {
+  addToCart(snack_type: string, item: string): void {
     console.log('item', item);
-    this.selectedSnacks.unshift({"snack_type": snack_type, "snack_name" : item});
+    this.selectedSnacks.unshift({ "snack_type": snack_type, "snack_name": item });
     console.log('selectedSnacks', this.selectedSnacks);
   }
 
   removeItem(index: number) {
     this.selectedSnacks.splice(index, 1);
-    console.log('selectedSnacks', this.selectedSnacks);
+    console.log('selectedSnacks :', this.selectedSnacks);
   }
 
   ngOnDestroy(): void {
