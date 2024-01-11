@@ -5,6 +5,10 @@ import { ProductComponent } from './product/product.component';
 import { ContactComponent } from './Layout/contact/contact.component';
 import { AdminComponent } from './admin/admin.component';
 import { LayoutComponent } from './Layout/layout.component';
+import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
+import { LoginComponent } from './admin/login/login.component';
+import { AuthGuard } from './auth/auth.guard';
+import { UserPageComponent } from './admin/user-page/user-page.component';
 
 const appRoutes: Routes = [
   {
@@ -18,11 +22,14 @@ const appRoutes: Routes = [
     ]
   },
   {
-    path: 'admin', component: AdminComponent,
+    path: 'admin', component: AdminComponent, canActivate: [AuthGuard],
     children: [
-      // { path: 'category/:id', component: CategoryComponent },
+      { path: 'adminhome', component: AdminHomeComponent },
+      { path: 'users', component: UserPageComponent },
+      { path: '', redirectTo: 'adminhome', pathMatch: 'full' },
     ]
   },
+  { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home' },
 ];

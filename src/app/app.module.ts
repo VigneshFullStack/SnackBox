@@ -11,6 +11,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { ContactComponent } from './Layout/contact/contact.component';
 import { AdminComponent } from './admin/admin.component';
 import { LayoutComponent } from './Layout/layout.component';
+import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
+import { LoginComponent } from './admin/login/login.component';
+import { FormsModule } from '@angular/forms';
+import { UserPageComponent } from './admin/user-page/user-page.component';
+
 
 @NgModule({
   declarations: [
@@ -22,11 +27,14 @@ import { LayoutComponent } from './Layout/layout.component';
     ContactComponent,
     AdminComponent,
     LayoutComponent,
+    AdminHomeComponent,
+    LoginComponent,
+    UserPageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule, FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
