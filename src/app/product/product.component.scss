@@ -9,3 +9,8 @@ tr {
     width: 100%;
     table-layout: fixed;
 }
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
