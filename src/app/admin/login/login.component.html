@@ -1,0 +1,77 @@
+<div class="login">
+  <div class="login__content">
+      <div class="login__img">
+              <img src="../../../assets/img/developer-team.svg" alt="">
+          </div>
+      <div class="login__forms">
+          <div class="login__registre" id="login-in">
+              <h1 class="login__title">Login</h1>
+              <div class="login__box">
+                  <i class='pi pi-user login__icon'></i>
+                  <input type="text" id="emailId" [(ngModel)]="userLogin.username" autocomplete="off" placeholder="Username"
+                      class="login__input">
+              </div>
+              <div class="login__box">
+                  <i class='pi pi-lock login__icon'></i>
+                  <input [type]="show ? 'text' : 'password'" [(ngModel)]="userLogin.password" autocomplete="off" placeholder="Password" class="login__input">
+                  <i [class]="show_eye ? 'fa fa-eye login__icon eye__icon' : 'fa fa-eye-slash login__icon eye__icon'" (click)="showPassword()"></i>
+              </div>
+
+              <!-- <a class="login__forgot">Forgot Password?</a> -->
+              <a class="login__button" (click)="loginUser()">Sign in</a>
+
+              <div>
+                  <!-- <span class="login__account ">Don't have an Account?</span> -->
+                  <span class="login__signin " id="sign-up">Create New Accound !</span>
+              </div>
+          </div>
+
+
+          <div class="login__create none " id="login-up">
+              <h4 class="login__title">New Accound</h4>
+              <!-- <div class="login__box">
+                  <i class='pi pi-user login__icon'></i>
+                  <input type="text" id="txtUser" [(ngModel)]="userRegister.userName" placeholder="Username"
+                      class="login__input">
+              </div> -->
+
+              <div [ngClass]="{'border border-danger': (submitted && !userRegister.username), 'login__box': true}">
+                  <!-- <i class='pi pi-user login__icon'></i> -->
+                  <input type="text" id="txtEmail" [(ngModel)]="userRegister.username" placeholder="Username"
+                      class="login__input  ">
+              </div>
+              <div [ngClass]="{'border border-danger': (submitted && !userRegister.password), 'login__box': true}">
+                  <!-- <i class='pi pi-lock login__icon'></i> -->
+                  <input type="password" id="txtNewPassword" [(ngModel)]="userRegister.password"
+                      placeholder="Password" class="login__input">
+              </div>
+              <div [ngClass]="{'border border-danger': (submitted && !userRegister.confirmpassword), 'login__box': true}">
+                  <!-- <i class='pi pi-lock login__icon'></i> -->
+                  <input type="password" id="txtNewconfirmpassword" [(ngModel)]="userRegister.confirmpassword"
+                      placeholder="confirmpassword" class="login__input">
+              </div>
+              <div class="mt-2 text-start">
+                <!-- <p-message severity="success" text="Request Sended SuccessFully" *ngIf="PassResetsuccess" styleClass="mr-2"></p-message>   -->
+                <span class="p-error" *ngIf="PassResetError">Enter Valid username & Email</span>
+              </div>
+              <a class="login__button" (click)="registerUser()">Create</a>
+              <div>
+                  <span class="login__account"></span>
+                  <span class="login__signup" id="sign-in">Sign In !!</span>
+              </div>
+              <!-- <div class="login__social social_links">
+                  <a class="login__social-icon"><i class='bx bxl-facebook'></i></a>
+                  <a class="login__social-icon"><i class='bx bxl-twitter'></i></a>
+                  <a class="login__social-icon"><i class='bx bxl-google'></i></a>
+              </div> -->
+          </div>
+          <div class="loaingCSS" *ngIf="MailLoading">
+            <div class="ld-ripple">
+                <div></div>
+                <div></div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+

@@ -1,0 +1,390 @@
+
+/* google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+
+::ng-deep :root {
+    /* colores */
+    --first-color: #0f2440;
+    --first-color-dark: #0f2440;
+    --first-color-light: #A49CAC;
+    --first-color-lighten: #F2F2F2;
+    --first-color-lighten1: #0f244009;
+    /* font and typography */
+    --body-font: 'open sans', sans-serif;
+    --h1-font-size: 1, 5rem;
+    --normel-font-size: .938rem;
+    --small-font-size: .813rem;
+}
+
+@media (min-width:768px) {
+    :root {
+        --normel-font-size: 1rem;
+        --small-font-size: .875rem;
+    }
+}
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--body-font);
+    font-size: var(--normel-font-size);
+    color: var(--first-color-dark);
+}
+
+h1 {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+/* login page */
+
+.login {
+    display: grid;
+    grid-template-columns: 100%;
+    height: 100vh;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+.login__content {
+    display: grid;
+    align-items: center;
+}
+
+.login__img {
+    justify-self: center;
+    // background: url(../../../../assets/images/website-building-of-shopping-sale.gif) no-repeat ;
+} 
+
+.login__img img {
+    width: 440px;
+    margin-top: 1.5rem;
+}
+
+.login__forms {
+    position: relative;
+    height: 368px;
+}
+
+.login__registre,
+.login__create {
+    position: absolute;
+    bottom: 1rem;
+    width: 100%;
+    background-color: var(--first-color-lighten);
+    padding: 2rem 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 8px 20px  #0f2440;
+    animation-duration: .4s;
+    animation-name: animate-login;
+}
+
+
+@keyframes animate-login{
+  0%{
+      transform: scale(1,1);
+  }
+  50%{
+      transform: scale(1.1,1.1);
+  }
+  100%{
+      transform: scale(1,1);
+  }
+}
+
+
+.login__title {
+    font-size: 1.5, 5.5rem;
+    margin-bottom: 2rem;
+}
+
+.login__box {
+    display: flex;
+    grid-template-columns: max-content 1fr;
+    column-gap: .5rem;
+    padding: 1.125rem 1rem;
+    background-color: #FFF;
+    margin-top: 1rem;
+    border-radius: .5rem;
+}
+.login__forms input{
+  width: 100%;
+}
+.login__icon {
+    font-size: 1.5rem;
+    color: var(--first-color);
+}
+
+.login__input {
+    border: none;
+    outline: none;
+    font-size: var(--normel-font-size);
+    font-weight: 400;
+    color: var(--first-color-dark);
+}
+
+.login__input::placeholder {
+    font-size: var(--normel-font-size);
+    font-family: var(--body-font);
+    color: var(--first-color-light);
+}
+
+.login__forgot {
+    display: block;
+    width: max-content;
+    margin-left: auto;
+    margin-top: .5rem;
+    font-size: var(--small-font-size);
+    font-weight: 600;
+    color: var(--first-color-light);
+}
+
+.login__button {
+    display: block;
+    padding: 1rem;
+    margin: 2rem 0;
+    background-color: var(--first-color);
+    color: #FFF;
+    font-weight: 400;
+    text-align: center;
+    border-radius: .5rem;
+    transition: .3s;
+}
+
+.login__button:hover {
+    background-color: var(--first-color-dark);
+    cursor: pointer;
+}
+
+.login__account,
+.login__signin,
+.login__signup {
+    font-weight: 600;
+    font-size: var(--small-font-size);
+}
+
+.login__account {
+    color: var(--first-color-dark);
+}
+
+.login__signin,
+.login__signup {
+    color: var(--first-color);
+    cursor: pointer;
+}
+
+.login__social {
+    margin-top: 2rem;
+}
+
+.login__social-icon {
+    font-size: 1.5rem;
+    color: var(--first-color-dark);
+    margin: 0 1.5rem;
+}
+
+
+/* login page */
+
+.block {
+    display: block;
+}
+
+/* hidden login page */
+
+.none {
+    display: none;
+}
+// .eye__icon{
+//   position: relative;
+//     left: -33px;
+// }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+  transition: background-color 5000s;
+  // -webkit-text-fill-color: #fff !important;
+}
+
+/* media queries */
+
+@media screen and (min-width:576px) {
+    .login__forms {
+        width: 348px;
+        justify-self: center;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .login {
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .login__content {
+        grid-template-columns: repeat(2, max-content);
+        justify-content: center;
+        align-items: center;
+        margin-left: 10rem;
+    }
+
+    .login__img {
+        display: flex;
+        width: 600px;
+        height: 588px;
+        background-color: var(--first-color-lighten1);
+        border-radius: 1rem;
+        padding-left: 1rem;
+    }
+
+    .login__img img {
+        width: 440px;
+        margin-top: 0;
+    }
+
+    .login__registre,
+    .login__create {
+        left: -11rem;
+    }
+
+    .login__registre {
+        bottom: -2rem;
+    }
+
+    .login__create {
+        bottom: -1.5rem;
+    }
+
+}
+
+/* social icon */
+
+.social_links {
+    display: flex;
+}
+
+.social_links a {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--first-color);
+    box-shadow: 0 0 5px 3px rgba(184, 159, 214, 0.5);
+    margin: auto;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.5s;
+    cursor: pointer;
+}
+
+.social_links a .bx {
+    font-size: 15px;
+    line-height: 15px;
+    position: relative;
+    top: 4px;
+    z-index: 10;
+    transition: color 0.5s;
+}
+
+.social_links a::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: -90px;
+    left: 0;
+    background: linear-gradient(-45deg, #7848b3, #660bd4);
+    position: absolute;
+    transition: 0.5s;
+}
+
+.social_links a:hover::after {
+    top: 0;
+}
+
+.social_links a:hover .bx {
+    color: #fff;
+}
+
+.social_links a:hover {
+    transition: translatey(-10px);
+}
+
+.loaingCSS{
+    position: absolute;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    right: 51%;
+    padding: 46% 0;
+    .ld-ripple {
+        position: relative;
+        width: 80px;
+        height: 80px;
+      }
+      
+      .ld-ripple div {
+        position: absolute;
+        border: 4px solid blue;
+        opacity: 1;
+        border-radius: 50%;
+        animation: ld-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+      }
+      
+      .ld-ripple div:nth-child(2) {
+        animation-delay: -0.5s;
+      }
+      
+      @keyframes ld-ripple {
+        0% {
+          top: 36px;
+          left: 36px;
+          width: 0;
+          height: 0;
+          opacity: 0;
+        }
+      
+        4.9% {
+          top: 36px;
+          left: 36px;
+          width: 0;
+          height: 0;
+          opacity: 0;
+        }
+      
+        5% {
+          top: 36px;
+          left: 36px;
+          width: 0;
+          height: 0;
+          opacity: 1;
+        }
+      
+        100% {
+          top: 0px;
+          left: 0px;
+          width: 72px;
+          height: 72px;
+          opacity: 0;
+        }
+      }
+}
+.blur{
+    filter: blur(5px);
+   }
