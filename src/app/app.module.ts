@@ -7,7 +7,8 @@ import { ProductComponent } from './product/product.component';
 import { HeaderComponent } from './Layout/header/header.component';
 import { FooterComponent } from './Layout/footer/footer.component';
 import { AppRoutingModule } from './app-routing.module';
-import { CategoryComponent } from './product/category/category.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ContactComponent } from './Layout/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +17,12 @@ import { CategoryComponent } from './product/category/category.component';
     ProductComponent,
     HeaderComponent,
     FooterComponent,
-    CategoryComponent
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

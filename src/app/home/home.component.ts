@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  scrollToTop(event: Event) {
+    // Prevent the default behavior of the anchor tag
+    event.preventDefault();
 
+    // Scroll smoothly to the top of the page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }
