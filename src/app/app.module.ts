@@ -15,6 +15,7 @@ import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { LoginComponent } from './admin/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { UserPageComponent } from './admin/user-page/user-page.component';
+import { CategoryComponent } from './admin/category/category.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { UserPageComponent } from './admin/user-page/user-page.component';
     AdminHomeComponent,
     LoginComponent,
     UserPageComponent,
+    CategoryComponent,
   ],
   imports: [
     BrowserModule,

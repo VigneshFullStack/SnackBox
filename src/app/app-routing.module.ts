@@ -9,6 +9,7 @@ import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { LoginComponent } from './admin/login/login.component';
 import { AuthGuard } from './auth/auth.guard';
 import { UserPageComponent } from './admin/user-page/user-page.component';
+import { CategoryComponent } from './admin/category/category.component';
 
 const appRoutes: Routes = [
   {
@@ -26,6 +27,7 @@ const appRoutes: Routes = [
     children: [
       { path: 'adminhome', component: AdminHomeComponent },
       { path: 'users', component: UserPageComponent },
+      { path: 'category', component: CategoryComponent },
       { path: '', redirectTo: 'adminhome', pathMatch: 'full' },
     ]
   },

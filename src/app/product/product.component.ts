@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Category } from 'src/models/Category';
@@ -9,7 +9,7 @@ import { SnackboxService } from 'src/serivces/snackbox.service';
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })
-export class ProductComponent {
+export class ProductComponent implements OnInit {
 
   loading: boolean = true;
   private getAllData!: Subscription;

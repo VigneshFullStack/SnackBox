@@ -26,7 +26,14 @@ export class SnackboxService {
       )
   }
 
-  getCategoryById(id:number): Observable<any> {
+  getAllCategories(): Observable<any> {
+    return this.http.get(`${this.snackboxApi}/Menu/GetAllCategory`, this.httpOptions)
+      .pipe(
+        catchError(err => this.errorHandler(err))
+      )
+  }
+
+  getCategoryById(id: number): Observable<any> {
     return this.http.get(`${this.snackboxApi}/Menu/GetMenu?categoryId=${id}`, this.httpOptions)
       .pipe(
         catchError(err => this.errorHandler(err))
@@ -38,12 +45,11 @@ export class SnackboxService {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
       errorMessage = error.error.message;
-    } 
-    else 
-    {
+    }
+    else {
       if (error.status == 401
         || error.status == 403) {
-         console.log('You are unauthorized!')
+        console.log('You are unauthorized!')
         // this.messageService.add({
         //   severity: 'error',
         //   summary: 'UnAuthorized',
@@ -59,7 +65,7 @@ export class SnackboxService {
         //   life: 3000
         // });
         console.log('API Error - Please contact the Administrator!')
-      }      
+      }
     }
 
     // Log the detailed error message to the console
