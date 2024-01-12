@@ -11,3 +11,6 @@ export interface ItemTypes {
 export interface Data {
     data: ItemTypes[];
 }
+
+
+
