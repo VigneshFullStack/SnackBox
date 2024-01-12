@@ -2,11 +2,11 @@
     <div class="container py-5">
         <div class="tab-class text-center">
             <div class="row g-4">
-                <div class="col-lg-4 text-start">
+                <div class="col-12 text-start">
                     <h1>Our Products</h1>
                 </div>
-                <div class="col-lg-8 text-end">
-                    <ul class="nav nav-pills d-inline-flex text-center mb-5">
+                <div class="col-12 text-end">
+                    <!-- <ul class="nav nav-pills d-inline-flex text-center mb-5">
                         <li class="nav-item" *ngFor="let category of categories; let i = index">
                             <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill"
                                 [href]="'#tab-' + category.category_id"
@@ -14,7 +14,34 @@
                                 <span class="text-dark" style="width: 130px;">{{ category.category_name }}</span>
                             </a>
                         </li>
-                    </ul>
+                    </ul> -->
+
+                    <div id="tab-1" class="tab-pane fade show p-0">
+                        <div class="row g-4 d-flex justify-content-center">
+                            <div class="col-md-6 col-lg-4 col-xl-3" *ngFor="let category of categories; let i = index">
+                                <div class="rounded position-relative fruite-item">
+                                    <div class="fruite-img">
+                                        <img [src]="'../../assets/img/best-product-' + i + '.jpg'"
+                                            class="img-fluid w-100 rounded-top" alt="">
+                                    </div>
+                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                        style="top: 10px; left: 10px;">Fruits</div>
+                                    <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                        <h4 class="text-center">{{ category.category_name }}</h4>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te
+                                            incididunt</p>
+                                        <div class="d-flex justify-content-center flex-lg-wrap">
+                                            <a (click)="goToCategoryDetails(category.category_id)"
+                                                [ngClass]="{ 'selected-category': category === selectedCategory }"
+                                                class="btn border border-secondary rounded-pill px-3 text-primary">
+                                                View All
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- Category Page Start -->
@@ -40,8 +67,14 @@
                                             <i class="fas fa-star"></i>
                                         </div> -->
                                         <!-- <h4 class="mb-3">3.12 $</h4> -->
+                                        <!-- <a (click)="addToCart(itemType.ItemTypes[0].ItemType, item)"
+                                            class="btn border border-secondary rounded-pill px-3 text-primary"
+                                            [class.disabled]="remainingItems[itemType.ItemTypes[0].ItemType] <= 0">
+                                            <i class="bi bi-cart-plus-fill me-2 text-primary"></i> Select
+                                        </a> -->
                                         <a (click)="addToCart(itemType.ItemTypes[0].ItemType, item)"
                                             class="btn border border-secondary rounded-pill px-3 text-primary"
+                                            [class.selected-button]="isSelected(itemType.ItemTypes[0].ItemType, item)"
                                             [class.disabled]="remainingItems[itemType.ItemTypes[0].ItemType] <= 0">
                                             <i class="bi bi-cart-plus-fill me-2 text-primary"></i> Select
                                         </a>
@@ -55,7 +88,7 @@
             <!-- Category Page End -->
 
             <!-- Cart Page Start -->
-            <div class="container-fluid py-5" *ngIf="count > 0">
+            <div class="container-fluid py-5" *ngIf="showCart">
                 <div class="container py-5">
                     <div class="row">
                         <div class="col-md-8">
@@ -100,19 +133,19 @@
                                         </h1>
                                         <div class="d-flex justify-content-between mb-4">
                                             <h5 class="mb-0 me-4">Subtotal:</h5>
-                                            <p class="mb-0">$96.00</p>
+                                            <p class="mb-0">1000 INR</p>
                                         </div>
                                         <div class="d-flex justify-content-between">
                                             <h5 class="mb-0 me-4">Shipping</h5>
                                             <div class="">
-                                                <p class="mb-0">Flat rate: $3.00</p>
+                                                <p class="mb-0">Flat rate: 0 INR</p>
                                             </div>
                                         </div>
-                                        <p class="mb-0 text-end">Shipping to Ukraine.</p>
+                                        <!-- <p class="mb-0 text-end">Shipping to Ukraine.</p> -->
                                     </div>
                                     <div class="py-4 mb-4 border-top border-bottom d-flex justify-content-between">
                                         <h5 class="mb-0 ps-4 me-4">Total</h5>
-                                        <p class="mb-0 pe-4">$99.00</p>
+                                        <p class="mb-0 pe-4">1000 INR</p>
                                     </div>
                                     <button
                                         class="btn border-secondary rounded-pill px-5 py-3 text-primary text-uppercase mb-4 ms-4"

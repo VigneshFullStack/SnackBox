@@ -14,3 +14,15 @@ tr {
     pointer-events: none;
     opacity: 0.5;
 }
+
+.selected-button {
+    background-color: #ffb524;
+    /* Change the background color to your preferred color */
+    color: #fff;
+    /* Change the text color to maintain visibility */
+}
+
+.selected-category {
+    background-color: #ffb524;
+    color: #fff !important;
+}
