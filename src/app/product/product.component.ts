@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Category } from 'src/models/Category';
@@ -9,7 +9,7 @@ import { SnackboxService } from 'src/serivces/snackbox.service';
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })
-export class ProductComponent {
+export class ProductComponent implements OnInit {
 
   loading: boolean = true;
   private getAllData!: Subscription;
@@ -68,24 +68,24 @@ export class ProductComponent {
     var maxSelectionNotReached = false;
     var wishitem = 0;
     const itemAlreadySelected = this.selectedItems[itemType].indexOf(item) !== -1;
-    if( itemType == 'Add on')    {
-      maxSelectionNotReached = this.selectedItems[itemType].length <=1;
+    if (itemType == 'Add on') {
+      maxSelectionNotReached = this.selectedItems[itemType].length <= 1;
       wishitem = 1;
       console.log('Add on', maxSelectionNotReached)
     }
-    if( itemType == 'Dessert')    {
+    if (itemType == 'Dessert') {
       wishitem = 1;
-      maxSelectionNotReached = this.selectedItems[itemType].length <=1;
+      maxSelectionNotReached = this.selectedItems[itemType].length <= 1;
       console.log('Dessert ', maxSelectionNotReached)
     }
-    if( itemType == 'Snack 1')    {
+    if (itemType == 'Snack 1') {
       wishitem = 3;
-      maxSelectionNotReached = this.selectedItems[itemType].length <=2;
-      console.log('Snack 1', maxSelectionNotReached,this.selectedItems[itemType].length)
+      maxSelectionNotReached = this.selectedItems[itemType].length <= 2;
+      console.log('Snack 1', maxSelectionNotReached, this.selectedItems[itemType].length)
     }
-    if( itemType == 'Snack 2')    {
+    if (itemType == 'Snack 2') {
       wishitem = 3;
-      maxSelectionNotReached = this.selectedItems[itemType].length <=2;
+      maxSelectionNotReached = this.selectedItems[itemType].length <= 2;
       console.log('Snack 2', maxSelectionNotReached)
     }
     // Check if the maximum selection count has not been reached for the current itemType
@@ -103,13 +103,13 @@ export class ProductComponent {
 
     this.remainingItems[itemType] = wishitem - this.selectedItemsCount[itemType];
     console.log('wishitem', wishitem)
-    console.log('this.remainingItems[itemType] ', this.remainingItems[itemType] )
+    console.log('this.remainingItems[itemType] ', this.remainingItems[itemType])
 
     // Enable or disable buttons based on the maximum selection status
     this.categories.forEach((category) => {
-      const maxSelectionReached = this.selectedItemsCount[category.category_name] ===  wishitem;
+      const maxSelectionReached = this.selectedItemsCount[category.category_name] === wishitem;
       const isEnabled = !maxSelectionReached || (category.category_name === itemType && this.selectedItems[itemType]?.includes(item));
-      this.remainingItems[category.category_name] = isEnabled ?  wishitem - (this.selectedItemsCount[category.category_name] || 0) : 0;
+      this.remainingItems[category.category_name] = isEnabled ? wishitem - (this.selectedItemsCount[category.category_name] || 0) : 0;
     });
   }
 
@@ -143,12 +143,12 @@ export class ProductComponent {
     return this.count;
   }
 
-  SelectedItemsCount()  {
+  SelectedItemsCount() {
     var ItemsCount = 0;
     for (const key in this.selectedItems) {
       if (this.selectedItems.hasOwnProperty(key)) {
         this.count += this.selectedItems[key].length;
-        ItemsCount ++;
+        ItemsCount++;
       }
     }
     return ItemsCount;
